@@ -10,7 +10,7 @@ interface IUser extends Document {
     forgotPasswordToken: string | null;
     forgotPasswordExpires: Date | null;
     verifyToken: string | null;
-    verifyExpires: Date | null;
+    verifyTokenExpires: Date | null;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -59,7 +59,7 @@ const userSchema = new Schema<IUser>(
             type: String,
             default: null // Optional: Default to null
         },
-        verifyExpires: {
+        verifyTokenExpires: {
             type: Date,
             default: null // Optional: Default to null
         }

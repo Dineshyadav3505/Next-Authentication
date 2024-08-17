@@ -2,7 +2,7 @@ import { dbconnect } from "@/dbconfig/dbconfig"
 import User  from "@/models/user.model"
 import { NextResponse, NextRequest} from "next/server"
 import bcrypt from "bcryptjs"
-import { generateToken } from "@/helpers/";
+import { getDataFromToken } from "@/helpers/jwtToken";
 dbconnect()
 
 export async function POST(request: NextRequest) {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Generate JWT token
-        const token = generateToken(user._id);
+        const token = getDataFromToken(user._id);
 
         return NextResponse.json({
             message: "User authenticated successfully",

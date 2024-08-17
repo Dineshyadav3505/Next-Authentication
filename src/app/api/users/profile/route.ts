@@ -1,10 +1,9 @@
-import { getDataFromToken } from "@/helpers/getDataFromToken";
-
+import { getDataFromToken } from "@/helpers/jwtToken";
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/models/userModel";
-import { connect } from "@/dbConfig/dbConfig";
+import User from "@/models/user.model";
+import { dbconnect } from "@/dbconfig/dbconfig";
 
-connect();
+dbconnect();
 
 export async function GET(request:NextRequest){
 

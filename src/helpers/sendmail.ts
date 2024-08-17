@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs"
 export const sendEmail = async ({email, emailType, userId}:any) => {
 
     try {
-
+        
         const hashedtoken =  await bcrypt.hash(userId.toString(), 10)
 
         if (emailType === 'VERIFY') {
@@ -33,7 +33,7 @@ export const sendEmail = async ({email, emailType, userId}:any) => {
         });
          
         const mailOptions={
-            from:'kodingmonk@gmail.com ', // sender address
+            from:'dinesh@gmail.com', // sender address
               to: email, // list of receivers
               subject: emailType === "VERIFY" ? "Verfiy your Email " : "Reset your Password ", // Subject line
               html: `

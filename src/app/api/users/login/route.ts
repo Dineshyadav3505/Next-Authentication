@@ -1,7 +1,8 @@
 import { dbconnect } from "@/dbconfig/dbconfig"
 import User  from "@/models/user.model"
 import { NextResponse, NextRequest} from "next/server"
-
+import bcrypt from "bcryptjs"
+import { generateToken } from "@/helpers/";
 dbconnect()
 
 export async function POST(request: NextRequest) {
